@@ -162,6 +162,18 @@ class MyDashboard(Dashboard):
       limit=5,
     ))
 
+from grappelli.dashboard import modules, Dashboard
+
+class MyDashboard(Dashboard):
+  def __init__(self, **kwargs):
+    Dashboard.__init__(self, **kwargs)
+    
+    self.children.append(modules.Feed(
+      title=_('Latest Django News'),
+      feed_url='http://www.sjangoproject.com/rss/weblog/',
+      column=3,
+      limit=5,
+    ))
 ```
 
 ```sh
